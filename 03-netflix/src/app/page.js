@@ -1,5 +1,6 @@
 import Link from "next/link";
-// react-router kullanırsam client yapmam gerekir, o yüzden next.js in tavsiye ettiği Link
+
+//* React-router kullanırsam client yapmam gerekir, o yüzden Next.js'in tavsiye ettiği Link:
 export default function Home() {
   return (
     <main className="h-screen w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover ">

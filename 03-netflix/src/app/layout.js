@@ -1,6 +1,6 @@
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
-
+import { ToastContainer } from "react-toastify";
 
 // burası approuter gibi rotaları yönetiyor
 export const metadata = {
@@ -11,10 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body >
-        
-          {children}
-         
+      <body>
+        {children}
+        <ToastContainer />
       </body>
     </html>
   );
