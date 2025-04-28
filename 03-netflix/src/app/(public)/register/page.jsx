@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import GoogleIcon from "/public/icons/GoogleIcon";
+import { YetkiContext } from "@/context/AuthContext";
 
 const Register = () => {
   const [info, setInfo] = useState({
@@ -10,19 +11,21 @@ const Register = () => {
     password: "",
   });
 
+  const { createUser, signUpGooglE } = useContext(YetkiContext);
+
   //* dest
   const { firstName, lastName, email, password } = info; //* dest ederek her bir degisken müstakil olarak kullanilabilir.
 
   const onChange = (e) => setInfo({ ...info, [e.target.name]: e.target.value });
 
-  const gonderDatabase=(e)=> {
-    e.preventDefault()
+  const gonderDatabase = (e) => {
+    e.preventDefault();
 
     const displayName = `${firstName} ${lastName}`; //* hem inputlari doldurarak hem de Google ile giris yapildiginda browser'da sag üst kösede firstName ile lastName'i gösterebilmek icin displayName tanimlanir.
 
     //* DB'e kaydet:
-
-  }
+    createUser(email, password, displayName);
+  };
 
   return (
     <main className="relative h-screen w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover ">
@@ -80,7 +83,8 @@ const Register = () => {
             <button className="btn-danger">Register</button>
             <button
               type="button"
-              className="btn-danger flex justify-between text-center "
+              className="btn-danger flex justify-between text-center"
+              onClick={signUpGooglE}
             >
               Continue with Google
               <GoogleIcon />
