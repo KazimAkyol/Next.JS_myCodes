@@ -1,5 +1,6 @@
 "use client"
-import React, { useEffect, useState } from "react";
+
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { Fragment } from "react";
 import {
@@ -10,6 +11,7 @@ import {
   MenuItems,
   Transition,
 } from "@headlessui/react";
+import { YetkiContext } from "@/context/AuthContext";
 
 
 function classNames(...classes) {
@@ -21,9 +23,11 @@ const Navbar = () => {
 
 
   const [showBackground, setShowBackground] = useState(false);
+
+  const{currentUser} = useContext(YetkiContext)
  
 
-    const currentUser = { displayName: "ashley miller" };
+    // const currentUser = { displayName: "ashley miller" };
 
 
 
